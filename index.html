@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Báo Cáo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="report-form">
+            <h2>Gửi Hình Ảnh Hoặc Video Vi Phạm Về Đoàn Trường</h2>
+            <div class="form-group">
+                <label for="senderType">Chọn loại người gửi:</label>
+                <select id="senderType" onchange="toggleSenderInfo()">
+                    <option value="student">Học Sinh</option>
+                    <option value="teacher">Phụ Huynh</option>
+                    <option value="teacher">Giáo Viên</option>
+                </select>
+            </div>
+            <div class="form-group" id="classGroup">
+                <label for="class">Lớp tố cáo:</label>
+                <select id="class">
+                    <optgroup label="Lớp 10">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 10D1">Lớp 10D1</option>
+                        <option value="Lớp 10D2">Lớp 10D2</option>
+                        <option value="Lớp 10D3">Lớp 10D3</option>
+                        <option value="Lớp 10D4">Lớp 10D4</option>
+                        <option value="Lớp 10D5">Lớp 10D5</option>
+                        <option value="Lớp 10D6">Lớp 10D6</option>
+                        <option value="Lớp 10D7">Lớp 10D7</option>
+                        <option value="Lớp 10D8">Lớp 10D8</option>
+                        <optgroup label="KHối T"></optgroup>
+                        <option value="Lớp 10T1">Lớp 10T1</option>
+                        <option value="Lớp 10T2">Lớp 10T2</option>
+                        <option value="Lớp 10T3">Lớp 10T3</option>
+                        <option value="Lớp 10T4">Lớp 10T4</option>
+                        <option value="Lớp 10T5">Lớp 10T5</option>
+                        <optgroup label="KHối A1-B"></optgroup>
+                        <option value="Lớp 10A1">Lớp 10A1</option>
+                        <option value="Lớp 10B">Lớp 10B</option>
+                        <!-- Thêm các lựa chọn lớp 10 khác nếu cần -->
+                    </optgroup>
+                    <optgroup label="Lớp 11">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 11D1">Lớp 11D1</option>
+                        <option value="Lớp 11D2">Lớp 11D2</option>
+                        <option value="Lớp 11D3">Lớp 11D3</option>
+                        <option value="Lớp 11D4">Lớp 11D4</option>
+                        <option value="Lớp 11D5">Lớp 11D5</option>
+                        <option value="Lớp 11D6">Lớp 11D6</option>
+                        <option value="Lớp 11D7">Lớp 11D7</option>
+                        <optgroup label="KHối T"></optgroup>
+                        <option value="Lớp 11T1">Lớp 11T1</option>
+                        <option value="Lớp 11T2">Lớp 11T2</option>
+                        <option value="Lớp 11T3">Lớp 11T3</option>
+                        <option value="Lớp 11T4">Lớp 11T4</option>
+                        <option value="Lớp 11T5">Lớp 11T5</option>
+                        <optgroup label="KHối A1-B"></optgroup>
+                        <option value="Lớp 11A1">Lớp 11A1</option>
+                        <option value="Lớp 11B">Lớp 11B</option>
+                        <!-- Thêm các lựa chọn lớp 11 khác nếu cần -->
+                    </optgroup>
+                    <optgroup label="Lớp 12">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 12D1">Lớp 12D1</option>
+                    <option value="Lớp 12D2">Lớp 12D2</option>
+                    <option value="Lớp 12D3">Lớp 12D3</option>
+                    <option value="Lớp 12D4">Lớp 12D4</option>
+                    <option value="Lớp 12D5">Lớp 12D5</option>
+                    <option value="Lớp 12D6">Lớp 12D6</option>
+                    <option value="Lớp 12D7">Lớp 12D7</option>
+                    <optgroup label="KHối T"></optgroup>
+                    <option value="Lớp 12T1">Lớp 12T1</option>
+                    <option value="Lớp 12T2">Lớp 12T2</option>
+                    <option value="Lớp 12T3">Lớp 12T3</option>
+                    <option value="Lớp 12T4">Lớp 12T4</option>
+                    <optgroup label="KHối A1-B"></optgroup>
+                    <option value="Lớp 12A1">Lớp 12A1</option>
+                    <option value="Lớp 12B">Lớp 12B</option>
+                        <!-- Thêm các lựa chọn lớp 12 khác nếu cần -->
+                    </optgroup>
+                    <!-- Thêm các lựa chọn lớp 11 và 12 tương tự như trên -->
+                </select>
+            </div>
+            <div class="form-group" id="teacherNameGroup" style="display: none;">
+                <label for="teacherName">Giáo viên (phụ huynh):</label>
+                <input type="text" id="teacherName" placeholder="Nhập tên Giáo viên (phụ huynh)">
+            </div>
+            <div class="form-group">
+                <label for="fullName">Họ và Tên Người bị tố cáo:</label>
+                <input type="text" id="fullName" placeholder="Nhập họ và tên" required>
+            </div>
+            <div class="form-group">
+                <label for="class2">Lớp có học sinh vi phạm:</label>
+                <select id="class2">
+                    <optgroup label="Lớp 10">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 10D1">Lớp 10D1</option>
+                        <option value="Lớp 10D2">Lớp 10D2</option>
+                        <option value="Lớp 10D3">Lớp 10D3</option>
+                        <option value="Lớp 10D4">Lớp 10D4</option>
+                        <option value="Lớp 10D5">Lớp 10D5</option>
+                        <option value="Lớp 10D6">Lớp 10D6</option>
+                        <option value="Lớp 10D7">Lớp 10D7</option>
+                        <option value="Lớp 10D8">Lớp 10D8</option>
+                        <optgroup label="KHối T"></optgroup>
+                        <option value="Lớp 10T1">Lớp 10T1</option>
+                        <option value="Lớp 10T2">Lớp 10T2</option>
+                        <option value="Lớp 10T3">Lớp 10T3</option>
+                        <option value="Lớp 10T4">Lớp 10T4</option>
+                        <option value="Lớp 10T5">Lớp 10T5</option>
+                        <optgroup label="KHối A1-B"></optgroup>
+                        <option value="Lớp 10A1">Lớp 10A1</option>
+                        <option value="Lớp 10B">Lớp 10B</option>
+                        <!-- Thêm các lựa chọn lớp 10 khác nếu cần -->
+                    </optgroup>
+                    <optgroup label="Lớp 11">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 11D1">Lớp 11D1</option>
+                        <option value="Lớp 11D2">Lớp 11D2</option>
+                        <option value="Lớp 11D3">Lớp 11D3</option>
+                        <option value="Lớp 11D4">Lớp 11D4</option>
+                        <option value="Lớp 11D5">Lớp 11D5</option>
+                        <option value="Lớp 11D6">Lớp 11D6</option>
+                        <option value="Lớp 11D7">Lớp 11D7</option>
+                        <optgroup label="KHối T"></optgroup>
+                        <option value="Lớp 11T1">Lớp 11T1</option>
+                        <option value="Lớp 11T2">Lớp 11T2</option>
+                        <option value="Lớp 11T3">Lớp 11T3</option>
+                        <option value="Lớp 11T4">Lớp 11T4</option>
+                        <option value="Lớp 11T5">Lớp 11T5</option>
+                        <optgroup label="KHối A1-B"></optgroup>
+                        <option value="Lớp 11A1">Lớp 11A1</option>
+                        <option value="Lớp 11B">Lớp 11B</option>
+                        <!-- Thêm các lựa chọn lớp 11 khác nếu cần -->
+                    </optgroup>
+                    <optgroup label="Lớp 12">
+                        <optgroup label="KHối D"></optgroup>
+                        <option value="Lớp 12D1">Lớp 12D1</option>
+                    <option value="Lớp 12D2">Lớp 12D2</option>
+                    <option value="Lớp 12D3">Lớp 12D3</option>
+                    <option value="Lớp 12D4">Lớp 12D4</option>
+                    <option value="Lớp 12D5">Lớp 12D5</option>
+                    <option value="Lớp 12D6">Lớp 12D6</option>
+                    <option value="Lớp 12D7">Lớp 12D7</option>
+                    <optgroup label="KHối T"></optgroup>
+                    <option value="Lớp 12T1">Lớp 12T1</option>
+                    <option value="Lớp 12T2">Lớp 12T2</option>
+                    <option value="Lớp 12T3">Lớp 12T3</option>
+                    <option value="Lớp 12T4">Lớp 12T4</option>
+                    <optgroup label="KHối A1-B"></optgroup>
+                    <option value="Lớp 12A1">Lớp 12A1</option>
+                    <option value="Lớp 12B">Lớp 12B</option>
+                        <!-- Thêm các lựa chọn lớp 12 khác nếu cần -->
+                    </optgroup>
+            </div>
+
+            <div class="form-group">
+                <label for="reportReason">Lý do tố cáo:</label>
+                <textarea id="reportReason" placeholder="Nhập lý do tố cáo" required></textarea>
+            </div>
+            <input type="file" id="imageInput" accept="image/*" multiple onchange="checkFileSize('imageInput', 'selectedImage')" onclick="resetFileName('selectedImage')">
+<button onclick="resetFile('imageInput', 'selectedImage')">Xóa Ảnh Vừa Chọn</button>
+<div id="selectedImage">Chưa có file nào được chọn</div>
+
+<input type="file" id="videoInput" accept="video/*" multiple onchange="checkFileSize('videoInput', 'selectedVideo')" onclick="resetFileName('selectedVideo')">
+<button onclick="resetFile('videoInput', 'selectedVideo')">Xóa Video Vừa Chọn</button>
+<div id="selectedVideo">Chưa có file nào được chọn</div>
+
+            
+            
+            <div class="form-group">
+                <button onclick="submitReport()">Gửi Tố Cáo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="scrip.js"></script>
+
+       
+
+</body>
+
+</html>
